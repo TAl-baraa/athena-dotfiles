@@ -1,0 +1,42 @@
+window {
+    margin: 0px;
+    border: 2px solid #89b4fa;
+    border-radius: 16px;
+    background-color: rgba(30, 30, 46, 0.92);
+}
+
+#input {
+    margin: 15px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: #313244;
+    color: #cdd6f4;
+    font-size: 18px;
+}
+
+#inner-box {
+    margin: 10px;
+}
+
+#outer-box {
+    margin: 10px;
+}
+
+#entry {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#entry:selected {
+    background-color: #89b4fa;
+    color: #1e1e2e;
+}
+
+#text {
+    color: #cdd6f4;
+}
+
+#text:selected {
+    color: #1e1e2e;
+}
