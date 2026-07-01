@@ -6,7 +6,9 @@ Personal Linux dotfiles for my Athena OS Hyprland workstation.
 
 ![Desktop](screenshots/desktop.png)
 
-## Components
+---
+
+# Components
 
 - Hyprland
 - Waybar
@@ -19,13 +21,17 @@ Personal Linux dotfiles for my Athena OS Hyprland workstation.
 - Clipboard History
 - Screenshot Shortcuts
 
-## Preview
+---
 
-### SDDM Login Theme
+# Preview
+
+## SDDM Login Theme
 
 ![SDDM](screenshots/sddm.png)
 
-## Structure
+---
+
+# Structure
 
 ```text
 athena-dotfiles/
@@ -40,25 +46,73 @@ athena-dotfiles/
 ├── wallpapers/
 ├── fonts/
 └── docs/
+```
 
+---
 
-Status
+# Installation
 
-Work in progress.
+Clone the repository:
 
-Roadmap
- Initial Hyprland setup
- Waybar customization
- Kitty + Starship prompt
- Wofi launcher
- Dunst notifications
- SDDM Athena MK-I theme
- Create install script
- Improve SDDM layout
- Add Hyprlock theme
- Add wallpapers
- Add Jarvis helper scripts
- Add full documentation
-License
+```bash
+git clone https://github.com/TAl-baraa/athena-dotfiles.git
+cd athena-dotfiles
+```
 
-This project is currently personal. License details will be updated later.
+Run the installer:
+
+```bash
+./install.sh
+```
+
+---
+
+# Backup
+
+Copy your current configuration into this repository:
+
+```bash
+./backup.sh
+```
+
+---
+
+# Restore
+
+Restore the dotfiles using symbolic links:
+
+```bash
+./restore.sh
+```
+
+---
+
+# Status
+
+🚧 Work in Progress
+
+---
+
+# Roadmap
+
+- [x] Initial Hyprland setup
+- [x] Waybar customization
+- [x] Kitty configuration
+- [x] Wofi launcher
+- [x] Dunst notifications
+- [x] SDDM Athena MK-I theme
+- [ ] Install script
+- [ ] Restore script
+- [ ] Backup script
+- [ ] Hyprlock theme
+- [ ] Wallpapers collection
+- [ ] Jarvis helper scripts
+- [ ] Documentation
+
+---
+
+# License
+
+Currently for personal use.
+
+A proper open-source license will be added later.
