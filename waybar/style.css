@@ -3,32 +3,34 @@
    Glass HUD Edition
    ========================= */
 
-/* ====== GLOBAL ====== */
+/* ===== PALETTE =====
+   Cyan:   #00c3ff
+   Text:   #cfe8ff
+   Danger: #ff5c8a
+*/
+
 * {
     font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Arial, sans-serif;
     font-size: 12px;
     border-radius: 12px;
 }
 
-/* ====== MAIN BAR ====== */
+/* ===== MAIN BAR ===== */
 window#waybar {
     background: rgba(10, 12, 18, 0.55);
     border: 1px solid rgba(0, 180, 255, 0.15);
     color: #cfe8ff;
-
     margin: 6px 10px;
     padding: 4px 10px;
-
     box-shadow: 0 0 20px rgba(0, 170, 255, 0.08);
     transition: all 0.3s ease;
 }
 
-/* when hidden */
 window#waybar.hidden {
     opacity: 0.2;
 }
 
-/* ====== MODULE BASE STYLE ====== */
+/* ===== MODULE BASE ===== */
 #clock,
 #cpu,
 #memory,
@@ -36,6 +38,7 @@ window#waybar.hidden {
 #network,
 #pulseaudio,
 #battery,
+#language,
 #tray,
 #custom-power {
     padding: 4px 10px;
@@ -46,7 +49,7 @@ window#waybar.hidden {
     box-shadow: inset 0 0 10px rgba(0, 180, 255, 0.05);
 }
 
-/* ====== HOVER EFFECT ====== */
+/* ===== MODULE HOVER ===== */
 #clock:hover,
 #cpu:hover,
 #memory:hover,
@@ -54,13 +57,14 @@ window#waybar.hidden {
 #network:hover,
 #pulseaudio:hover,
 #battery:hover,
+#language:hover,
 #tray:hover,
 #custom-power:hover {
     background: rgba(0, 180, 255, 0.18);
     box-shadow: 0 0 10px rgba(0, 180, 255, 0.25);
 }
 
-/* ====== WORKSPACES ====== */
+/* ===== WORKSPACES ===== */
 #workspaces {
     margin: 0 6px;
 }
@@ -76,27 +80,54 @@ window#waybar.hidden {
 
 #workspaces button:hover {
     background: rgba(0, 180, 255, 0.2);
-    color: white;
+    color: #ffffff;
 }
 
 #workspaces button.active {
     background: rgba(0, 180, 255, 0.35);
-    color: white;
+    color: #ffffff;
     box-shadow: 0 0 10px rgba(0, 180, 255, 0.4);
 }
 
-/* ====== CLOCK (CENTER FOCUS) ====== */
+/* ===== CENTER CLOCK ===== */
 #clock {
     font-weight: bold;
     color: #00c3ff;
     background: rgba(0, 180, 255, 0.12);
 }
 
-/* ====== BATTERY ====== */
+/* ===== SYSTEM MODULE COLORS ===== */
+#cpu {
+    color: #60a5fa;
+}
+
+#memory {
+    color: #38bdf8;
+}
+
+#temperature {
+    color: #22d3ee;
+}
+
+#network {
+    color: #7dd3fc;
+}
+
+#pulseaudio {
+    color: #a5f3fc;
+}
+
 #battery {
     color: #9ad1ff;
 }
 
+#language {
+    color: #00d9ff;
+    font-weight: 700;
+    min-width: 34px;
+}
+
+/* ===== BATTERY STATES ===== */
 #battery.charging {
     color: #00ffcc;
     background: rgba(0, 255, 200, 0.1);
@@ -113,69 +144,12 @@ window#waybar.hidden {
     animation: blink 0.8s infinite;
 }
 
-/* blinking effect */
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0.4;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-/* ====== NETWORK ====== */
-#network {
-    color: #7dd3fc;
-}
-
-/* ====== VOLUME ====== */
-#pulseaudio {
-    color: #a5f3fc;
-}
-
-/* ====== CPU / MEMORY ====== */
-#cpu {
-    color: #60a5fa;
-}
-
-#memory {
-    color: #38bdf8;
-}
-
-/* ====== TEMPERATURE ====== */
-#temperature {
-    color: #22d3ee;
-}
-
-/* ====== TRAY ====== */
+/* ===== TRAY ===== */
 #tray {
     background: transparent;
 }
 
-/* ====== POWER BUTTON ====== */
-#custom-power {
-    color: #ff5c8a;
-    background: rgba(255, 0, 100, 0.08);
-    border: 1px solid rgba(255, 0, 100, 0.2);
-}
-
-#custom-power:hover {
-    background: rgba(255, 0, 100, 0.2);
-    box-shadow: 0 0 12px rgba(255, 0, 100, 0.3);
-}
-
-/* ====== TOOLTIP ====== */
-tooltip {
-    background: rgba(10, 12, 18, 0.9);
-    border: 1px solid rgba(0, 180, 255, 0.2);
-    color: #cfe8ff;
-}
-
+/* ===== ATHENA BUTTON ===== */
 #custom-athena {
     color: #00c3ff;
     font-weight: bold;
@@ -190,4 +164,38 @@ tooltip {
 #custom-athena:hover {
     color: #ffffff;
     background: rgba(0, 180, 255, 0.25);
+}
+
+/* ===== POWER BUTTON ===== */
+#custom-power {
+    color: #ff5c8a;
+    background: rgba(255, 0, 100, 0.08);
+    border: 1px solid rgba(255, 0, 100, 0.2);
+}
+
+#custom-power:hover {
+    background: rgba(255, 0, 100, 0.2);
+    box-shadow: 0 0 12px rgba(255, 0, 100, 0.3);
+}
+
+/* ===== TOOLTIP ===== */
+tooltip {
+    background: rgba(10, 12, 18, 0.9);
+    border: 1px solid rgba(0, 180, 255, 0.2);
+    color: #cfe8ff;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
