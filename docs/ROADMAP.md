@@ -1,82 +1,31 @@
 # ATHENA Roadmap
 
-> Engineering-focused Linux workstation built on Hyprland.
+## v0.1.0 — Foundation
 
----
-
-# Version 0.1 — Foundation
-
-## Core System
-
-- [x] Hyprland
-- [x] Waybar
-- [x] Kitty
-- [x] Wofi
-- [x] Dunst
-- [x] Hyprlock
-- [x] SDDM Theme
-
----
-
-## Development
-
-- [x] Git
-- [x] GitHub Repository
-- [x] Project Structure
-- [x] Backup Script
-- [x] Restore Script
-- [x] Install Script
-
----
-
-## ATHENA
-
+- [x] Hyprland setup
+- [x] Waybar Glass HUD
+- [x] Kitty terminal
+- [x] Wofi launcher
+- [x] Dunst notifications
+- [x] SDDM ATHENA MK-I
 - [x] ATHENA Fetch
-- [x] ATHENA Branding
-- [x] Arabic Support
+- [x] Arabic support
+- [x] Wallpaper manager
+- [x] GitHub repository
 
----
+## v0.2.0 — User Experience
 
-## Explorer
-
-- [x] Thunar
-- [ ] ATHENA Explorer Customization
-
----
-
-## Appearance
-
-- [ ] Official Wallpapers
-- [ ] Final Screenshots
-- [ ] README Polish
-
----
-
-# Version 0.2 — User Experience
-
-- [ ] Wallpaper Manager
-- [ ] Theme Switching
-- [ ] Better SDDM
-- [ ] Hyprlock redesign
-- [ ] Notification Center
-- [ ] Clipboard Manager
+- [ ] Wallpaper selector menu
+- [ ] Theme manager foundation
 - [ ] Improved ATHENA Fetch
+- [ ] Hyprlock redesign
+- [ ] Dolphin/Thunar polish
+- [ ] Better screenshots and documentation
 
----
+## v1.0.0 — ATHENA Platform
 
-# Version 0.3 — Productivity
-
-- [ ] ESP32 Environment
-- [ ] Mechatronics Workspace
-- [ ] Python Workspace
-- [ ] CAD Workspace
-
----
-
-# Version 1.0 — ATHENA Assistant
-
-- [ ] Voice Assistant
-- [ ] Local AI
-- [ ] Computer Control
-- [ ] Automation Engine
-- [ ] Plugin System
+- [ ] ATHENA Assistant
+- [ ] Local AI integration
+- [ ] Automation engine
+- [ ] Plugin system
+EOF
