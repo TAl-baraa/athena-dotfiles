@@ -39,6 +39,7 @@ window#waybar.hidden {
 #pulseaudio,
 #battery,
 #language,
+#custom-wallpaper,
 #tray,
 #custom-power {
     padding: 4px 10px;
@@ -58,6 +59,7 @@ window#waybar.hidden {
 #pulseaudio:hover,
 #battery:hover,
 #language:hover,
+#custom-wallpaper:hover,
 #tray:hover,
 #custom-power:hover {
     background: rgba(0, 180, 255, 0.18);
@@ -159,6 +161,10 @@ window#waybar.hidden {
     box-shadow: 0 0 12px rgba(0, 180, 255, 0.35);
     padding: 4px 14px;
     margin: 2px 6px;
+}
+#custom-wallpaper {
+    color: #00d9ff;
+    font-weight: 700;
 }
 
 #custom-athena:hover {

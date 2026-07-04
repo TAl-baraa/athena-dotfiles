@@ -20,6 +20,8 @@
     "network",
     "pulseaudio",
     "battery",
+    "hyprland/language",
+    "custom/wallpaper",
     "tray",
     "custom/power"
 ],
@@ -36,6 +38,11 @@
         "active": "",
         "default": ""
     }
+},
+"hyprland/language": {
+    "format": "󰌌  {}",
+    "format-en": "EN",
+    "format-ar": "AR"
 },
     // Modules configuration
     // "sway/workspaces": {
@@ -196,5 +203,11 @@
         "format": "  ATHENA ",
         "tooltip": false,
         "on-click": "kitty"
+    },
+    "custom/wallpaper": {
+        "format": "🖼",
+        "tooltip": true,
+        "tooltip-format": "Next wallpaper",
+        "on-click": "athena-wallpaper next"
     }
 }
