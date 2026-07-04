@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+WALL_DIR="$HOME/Projects/Athena/athena-dotfiles/wallpapers/official"
+[ -d "$WALL_DIR" ] || WALL_DIR="$HOME/Projects/ATHENA/athena-dotfiles/wallpapers/official"
+[ -d "$WALL_DIR" ] || WALL_DIR="$HOME/Projects/athena-dotfiles/wallpapers/official"
+
+STATE_DIR="$HOME/.config/athena"
+STATE_FILE="$STATE_DIR/current-wallpaper"
+
+mkdir -p "$STATE_DIR"
+
+set_wallpaper() {
+    local img="$1"
+
+    if [ -z "$img" ] || [ ! -f "$img" ]; then
+        echo "Invalid wallpaper: $img"
+        exit 1
+    fi
+
+    if command -v hyprpaper >/dev/null; then
+    hyprctl hyprpaper preload "$img" >/dev/null 2>&1 || true
+    hyprctl hyprpaper wallpaper "eDP-1,$img" >/dev/null 2>&1 || true
+
+    elif command -v swww >/dev/null; then
+        swww img "$img"
+
+    elif command -v awww >/dev/null; then
+        awww img "$img"
+
+    else
+        echo "No supported wallpaper backend found: hyprpaper, swww, or awww"
+        exit 1
+    fi
+
+    echo "$img" > "$STATE_FILE"
+    notify-send "ATHENA Wallpaper" "$(basename "$img")" 2>/dev/null || true
+}
+
+
+mapfile -t WALLS < <(find "$WALL_DIR" -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) | sort)
+
+[ ${#WALLS[@]} -eq 0 ] && echo "No wallpapers found in $WALL_DIR" && exit 1
+
+case "$1" in
+    next)
+        current="$(cat "$STATE_FILE" 2>/dev/null)"
+        index=0
+        for i in "${!WALLS[@]}"; do
+            [[ "${WALLS[$i]}" == "$current" ]] && index=$(( (i + 1) % ${#WALLS[@]} ))
+        done
+        set_wallpaper "${WALLS[$index]}"
+        ;;
+
+    random)
+        set_wallpaper "${WALLS[$RANDOM % ${#WALLS[@]}]}"
+        ;;
+
+    list)
+        printf '%s\n' "${WALLS[@]}"
+        ;;
+
+    current)
+        cat "$STATE_FILE" 2>/dev/null || echo "No wallpaper selected"
+        ;;
+
+    current-apply)
+        current="$(cat "$STATE_FILE" 2>/dev/null)"
+        if [ -n "$current" ] && [ -f "$current" ]; then
+            set_wallpaper "$current"
+        else
+            set_wallpaper "${WALLS[0]}"
+        fi
+        ;;
+
+    *)
+        echo "Usage: athena-wallpaper {next|random|list|current}"
+        ;;
+esac
