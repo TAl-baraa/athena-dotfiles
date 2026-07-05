@@ -35,18 +35,46 @@ case "$1" in
         shift
         athena-wallpaper "$@"
         ;;
-
-    *)
-        echo "ATHENA CLI"
+    
+    doctor)
+        echo "ATHENA Doctor"
         echo
-        echo "Commands:"
+
+        command -v git >/dev/null && echo "✓ Git"
+        command -v docker >/dev/null && echo "✓ Docker"
+        command -v codium >/dev/null && echo "✓ VSCodium"
+        command -v thunar >/dev/null && echo "✓ Thunar"
+        command -v hyprpaper >/dev/null && echo "✓ Hyprpaper"
+        command -v athenafetch >/dev/null && echo "✓ ATHENA Fetch"
+        command -v athena-wallpaper >/dev/null && echo "✓ Wallpaper Manager"
+        ;;
+
+    update)
+        sudo pacman -Syu
+        ;;
+
+    clean)
+        sudo pacman -Sc
+        ;;
+    
+    *)
+        clear
+        echo "========================================="
+        echo "           ATHENA CLI v0.1"
+        echo "========================================="
+        echo
+        echo "Projects"
         echo "  athena dotfiles"
         echo "  athena jarvis"
         echo "  athena esp"
         echo "  athena math"
         echo "  athena mecha"
-        echo "  athena wallpapers"
+        echo
+        echo "System"
         echo "  athena fetch"
         echo "  athena wallpaper next"
+        echo "  athena wallpaper random"
+        echo "  athena wallpapers"
+        echo
         ;;
 esac
