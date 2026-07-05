@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+PROJECTS="$HOME/Projects"
+
+case "$1" in
+    dotfiles)
+        codium "$PROJECTS/ATHENA/athena-dotfiles"
+        ;;
+
+    jarvis)
+        codium "$PROJECTS/Jarvis"
+        ;;
+
+    esp)
+        codium "$PROJECTS/ESP32"
+        ;;
+
+    math)
+        codium "$PROJECTS/Math"
+        ;;
+
+    mecha)
+        codium "$PROJECTS/Mechatronics"
+        ;;
+
+    wallpapers)
+        thunar "$PROJECTS/ATHENA/athena-dotfiles/wallpapers"
+        ;;
+
+    fetch)
+        athenafetch
+        ;;
+
+    wallpaper)
+        shift
+        athena-wallpaper "$@"
+        ;;
+
+    *)
+        echo "ATHENA CLI"
+        echo
+        echo "Commands:"
+        echo "  athena dotfiles"
+        echo "  athena jarvis"
+        echo "  athena esp"
+        echo "  athena math"
+        echo "  athena mecha"
+        echo "  athena wallpapers"
+        echo "  athena fetch"
+        echo "  athena wallpaper next"
+        ;;
+esac
